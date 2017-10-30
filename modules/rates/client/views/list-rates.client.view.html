@@ -1,0 +1,45 @@
+<section>
+  <!-- <div class="page-header">
+    <h1>Rates</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="rate in vm.rates"
+       ui-sref="rates.view({ rateId: rate._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="rate.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="rate.user" ng-bind="rate.user.displayName"></span>
+        <span ng-if="!rate.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="rate.name"></h4>
+      <h4 class="list-group-item-heading" ng-bind="rate.rates"></h4>
+      <h4 class="list-group-item-heading" ng-bind="rate.price"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.rates.$resolved && !vm.rates.length">
+    No Rates yet, why don't you <a ui-sref="rates.create">create one</a>?
+  </div> -->
+  <div style="margin-top:20px;">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Type</th>
+          <th scope="col">Size</th>
+          <th scope="col">Price</th>          
+        </tr>
+      </thead>
+      <tbody ng-repeat="rate in vm.rates">
+        <tr ui-sref="rates.view({ rateId: rate._id })">
+          <th scope="row">{{$index+1}}</th>
+          <td>{{rate.rates}}</td>
+          <td>{{rate.size}}</td>
+          <td>{{rate.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</section>

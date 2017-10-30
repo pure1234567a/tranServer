@@ -1,0 +1,41 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.rate._id ? 'Edit Rate' : 'New Rate'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.rateForm" class="form-horizontal" ng-submit="vm.save(vm.form.rateForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="size">Size</label>
+          <input name="size" type="text" ng-model="vm.rate.size" id="size" class="form-control" placeholder="Size" required>
+          <div ng-messages="vm.form.rateForm.size.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Rate size is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="price">Price</label>
+          <input name="price" type="number" ng-model="vm.rate.price" id="price" class="form-control" placeholder="Price" required>
+          <div ng-messages="vm.form.rateForm.price.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Rate Price is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="rates">Rates</label>
+          <select name="rates" class="form-control" id="rates" ng-model="vm.rate.rates">
+            <option value="lamunphan">Lamunphan</option>
+            <option value="thaipost">Thaipost</option>
+          </select>
+          <div ng-messages="vm.form.rateForm.rates.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Rate Rates is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.rate._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

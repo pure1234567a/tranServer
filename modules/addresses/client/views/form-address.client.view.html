@@ -1,0 +1,87 @@
+<section>
+  <div class="page-header">
+    <h1>{{vm.address._id ? 'Edit Address' : 'New Address'}}</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="vm.form.addressForm" class="form-horizontal" ng-submit="vm.save(vm.form.addressForm.$valid)" novalidate>
+      <fieldset>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="name">Name</label>
+          <input name="name" type="text" ng-model="vm.address.name" id="name" class="form-control" placeholder="Name" required>
+          <div ng-messages="vm.form.addressForm.name.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Address name is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="surname">Surname</label>
+          <input name="surname" type="text" ng-model="vm.address.surname" id="surname" class="form-control" placeholder="Surname" required>
+          <div ng-messages="vm.form.addressForm.surname.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Address surname is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="address">Address</label>
+          <input name="address" type="text" ng-model="vm.address.address" id="address" class="form-control" placeholder="Address" required>
+          <div ng-messages="vm.form.addressForm.address.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Address address is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="subdistrict">Subdistrict</label>
+          <input name="subdistrict" type="text" ng-model="vm.address.subdistrict" id="subdistrict" class="form-control" placeholder="Subdistrict"
+            required>
+          <div ng-messages="vm.form.addressForm.subdistrict.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Address subdistrict is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="district">District</label>
+          <input name="district" type="text" ng-model="vm.address.district" id="district" class="form-control" placeholder="district"
+            required>
+          <div ng-messages="vm.form.addressForm.district.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Address district is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="province">Province</label>
+          <input name="province" type="text" ng-model="vm.address.province" id="province" class="form-control" placeholder="Province"
+            required>
+          <div ng-messages="vm.form.addressForm.province.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Address province is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="postcode">Postcode</label>
+          <input name="postcode" type="text" ng-model="vm.address.postcode" id="postcode" class="form-control" placeholder="Postcode"
+            required>
+          <div ng-messages="vm.form.addressForm.postcode.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Address postcode is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="tel">Tel</label>
+          <input name="tel" type="text" ng-model="vm.address.tel" id="tel" class="form-control" placeholder="Tel" required>
+          <div ng-messages="vm.form.addressForm.tel.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Address tel is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="sort">Sort</label>
+          <select name="sort" class="form-control" id="sort" ng-model="vm.address.sort" required>
+            <option value="sender">Sender</option>
+            <option value="receiver">Receiver</option>
+          </select>
+          <div ng-messages="vm.form.addressForm.sort.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Address Sort is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">{{vm.address._id ? 'Update' : 'Create'}}</button>
+        </div>
+        <div ng-show="vm.error" class="text-danger">
+          <strong ng-bind="vm.error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<section>
+  <div class="page-header">
+    <h1 ng-bind="vm.rate.rates"></h1>
+    <h1 ng-bind="vm.rate.price"></h1>
+  </div>
+  <div class="pull-right"
+       ng-show="vm.rate.isCurrentUserOwner">
+    <a class="btn btn-primary"
+       ui-sref="rates.edit({ rateId: vm.rate._id })">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="vm.remove()">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="vm.rate.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.rate.user"
+            ng-bind="vm.rate.user.displayName"></span>
+      <span ng-if="!vm.rate.user">Deleted User</span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="vm.rate.content"></p>
+</section>
