@@ -81,7 +81,7 @@ exports.delete = function(req, res) {
  * List of Orders
  */
 exports.list = function(req, res) {
-  Order.find().sort('-created').populate('user', 'displayName').populate('address').populate('rate').exec(function(err, orders) {
+  Order.find().sort('-created').populate('user', 'displayName').populate('address').populate('items.item').exec(function(err, orders) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -103,7 +103,7 @@ exports.orderByID = function(req, res, next, id) {
     });
   }
 
-  Order.findById(id).populate('user', 'displayName').populate('address').populate('rate').exec(function (err, order) {
+  Order.findById(id).populate('user', 'displayName').populate('items.item').populate('sender').populate('receiver').exec(function (err, order) {
     if (err) {
       return next(err);
     } else if (!order) {
